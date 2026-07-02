@@ -1,12 +1,47 @@
-# React + Vite
+# 🚀 React Props Learning
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React project built to understand and practice **Props** by creating reusable Job Card components.
 
-Currently, two official plugins are available:
+## 📚 About the Project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project demonstrates how data can be passed from a parent component to child components using **Props** in React.
 
-## Expanding the ESLint configuration
+Instead of hardcoding multiple job cards, an array of job objects is created and rendered dynamically using the `map()` method.
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Each job card receives its own data through props, making the component reusable and scalable.
+
+---
+
+## ✨ Features
+
+- 📦 Reusable Card Component
+- 🔁 Dynamic Rendering using `map()`
+- 📋 Job Listings UI
+- 🏢 Multiple Tech Companies (Google, Meta, Amazon, Apple, Microsoft, etc.)
+- 🎯 Beginner-friendly React Project
+- ⚛️ Understanding Parent → Child Data Flow
+
+---
+
+## 🛠️ Technologies Used
+
+- React.js
+- JavaScript (ES6+)
+- JSX
+- CSS
+- Vite
+- Lucide React Icons
+
+---
+
+## 📂 Project Structure
+
+```text
+src/
+│
+├── components/
+│   └── Card.jsx
+│
+├── App.jsx
+├── App.css
+├── main.jsx
