@@ -1,16 +1,95 @@
-# React + Vite
+# React Card App
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A simple and responsive Card App built using **React**. This project helped me practice the fundamentals of React, including components, JSX, props, and CSS styling.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* Responsive card layout
+* Reusable React components
+* Clean and modern UI
+* Styled using CSS
+* Beginner-friendly project structure
 
-## React Compiler
+## 🛠️ Built With
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* React
+* JavaScript (ES6+)
+* JSX
+* CSS3
+* Vite
 
-## Expanding the Oxlint configuration
+## 📂 Project Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+```text
+Card-App/
+├── src/
+│   ├── components/
+│   │   └── Cards.jsx
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
+├── public/
+├── package.json
+└── README.md
+```
+
+## 📸 Preview
+
+A simple profile card displaying:
+
+* Name
+* Role
+* Short description
+
+## 💻 Getting Started
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/Chandana-568/REACT_LEARNING.git
+```
+
+2. Navigate to the project folder:
+
+```bash
+cd Card-App
+```
+
+3. Install dependencies:
+
+```bash
+npm install
+```
+
+4. Start the development server:
+
+```bash
+npm run dev
+```
+
+## 📚 What I Learned
+
+* Creating and using React components
+* Writing JSX
+* Organizing project files
+* Importing CSS into React
+* Building reusable UI components
+* Understanding the React component hierarchy
+
+## 🎯 Future Improvements
+
+* Add multiple cards using props
+* Fetch card data dynamically
+* Improve responsiveness
+* Add hover animations
+* Implement dark mode
+
+## 👩‍💻 Author
+
+**Chandana BM**
+
+Aspiring Front-End Developer | Learning React and JavaScript | Building projects to become industry-ready.
+
+
+
+⭐ If you found this project useful, feel free to star the repository and follow my learning journey!
