@@ -4,8 +4,10 @@ import "./App.css";
 function App() {
   const [input, setInput] = useState("");
   const [tasks, setTasks] = useState([]);
-const [editId, setEditId] = useState(null);
-const [editText, setEditText] = useState("");
+  const [editId, setEditId] = useState(null);
+  const [editText, setEditText] = useState("");
+  const [filter, setFilter] = useState("all");
+
   function addTask() {
     if (input.trim() === "") return;
 
@@ -33,84 +35,125 @@ const [editText, setEditText] = useState("");
     );
   }
 
-  function startEdit(task){
-    setEditId(task.id)
-    setEditText(task.text)
+  function startEdit(task) {
+    setEditId(task.id);
+    setEditText(task.text);
   }
-function saveEdit(id) {
-  setTasks(
-    tasks.map((task) =>
-      task.id === id
-        ? { ...task, text: editText }
-        : task
-    )
-  );
 
-  setEditId(null);
-  setEditText("");
-}
+  function saveEdit(id) {
+    if (editText.trim() === "") return;
+
+    setTasks(
+      tasks.map((task) =>
+        task.id === id
+          ? { ...task, text: editText }
+          : task
+      )
+    );
+
+    setEditId(null);
+    setEditText("");
+  }
+
+  function cancelEdit() {
+    setEditId(null);
+    setEditText("");
+  }
+
+  const filteredTasks = tasks.filter((task) => {
+    if (filter === "active") return !task.completed;
+    if (filter === "completed") return task.completed;
+    return true;
+  });
+
+  function clearCompleted() {
+    setTasks(tasks.filter((task) => !task.completed));
+  }
+
   return (
-  <>
-    <h1>Hey.. Add your tasks here to complete..</h1>
+    <>
+      <h1>Hey.. Add your tasks here to complete..</h1>
 
-    <input
-      type="text"
-      placeholder="Get started"
-      value={input}
-      onChange={(e) => setInput(e.target.value)}
-      id="inputField"
-    />
+      <input
+        type="text"
+        placeholder="Get started"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        id="inputField"
+      />
 
-    <button onClick={addTask}>ADD</button>
+      <button onClick={addTask}>ADD</button>
 
-    <ul>
-      {tasks.map((task) => (
-        <li key={task.id}>
-          <input
-            type="checkbox"
-            checked={task.completed}
-            onChange={() => toggleTask(task.id)}
-          />
+      <div className="filters">
+        <button onClick={() => setFilter("all")}>All</button>
 
-          {editId === task.id ? (
-            <>
-              <input
-                type="text"
-                value={editText}
-                onChange={(e) => setEditText(e.target.value)}
-              />
+        <button onClick={() => setFilter("active")}>
+          Active
+        </button>
 
-              <button onClick={() => saveEdit(task.id)}>
-                SAVE
-              </button>
-            </>
-          ) : (
-            <>
-              <span
-                style={{
-                  textDecoration: task.completed
-                    ? "line-through"
-                    : "none",
-                  margin: "0 10px",
-                }}
-              >
-                {task.text}
-              </span>
+        <button onClick={() => setFilter("completed")}>
+          Completed
+        </button>
 
-              <button onClick={() => startEdit(task)}>
-                EDIT
-              </button>
-            </>
-          )}
+        <button onClick={clearCompleted}>
+          Clear Completed
+        </button>
+      </div>
 
-          <button onClick={() => delTask(task.id)}>
-            DELETE
-          </button>
-        </li>
-      ))}
-    </ul>
-  </>
-);
+      <ul>
+        {filteredTasks.map((task) => (
+          <li key={task.id}>
+            <input
+              type="checkbox"
+              checked={task.completed}
+              onChange={() => toggleTask(task.id)}
+            />
+
+            {editId === task.id ? (
+              <>
+                <input
+                  type="text"
+                  value={editText}
+                  onChange={(e) =>
+                    setEditText(e.target.value)
+                  }
+                />
+
+                <button onClick={() => saveEdit(task.id)}>
+                  Save
+                </button>
+
+                <button onClick={cancelEdit}>
+                  Cancel
+                </button>
+              </>
+            ) : (
+              <>
+                <span
+                  style={{
+                    textDecoration: task.completed
+                      ? "line-through"
+                      : "none",
+                    margin: "0 10px",
+                  }}
+                >
+                  {task.text}
+                </span>
+
+                <button onClick={() => startEdit(task)}>
+                  Edit
+                </button>
+              </>
+            )}
+
+            <button onClick={() => delTask(task.id)}>
+              Delete
+            </button>
+          </li>
+        ))}
+      </ul>
+    </>
+  );
 }
 
 export default App;
