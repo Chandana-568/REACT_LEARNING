@@ -2,20 +2,21 @@ import React from 'react'
 
 const App = () => {
 
- function btnClicked(){
-  console.log('button is clicked');
+
+const pageScrolling = ()=>{
+  console.log('page is scrolling');
   
- }
- function mouseEnter(){
-  console.log("mouse entered");
-  
- }
+}
   return (
-    <div>
-      <h1>Hello,chandana</h1>
-      <button onMouseEnter={mouseEnter} onClick={btnClicked}>Change User</button>
+  <div onWheel={()=>{
+pageScrolling(elem)    
+  }}>
+<div className="page1"></div>
+<div className="page2"></div>
+<div className="page3"></div>
+
 </div>
-  )
+  );
 }
 
 export default App;
