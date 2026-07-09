@@ -1,0 +1,12 @@
+button{
+  padding: 10px 20px;
+  margin: 20px;
+}
+h2{
+  background-color: pink;
+  width: fit-content;
+  font-size: 40px;
+
+  padding: 10px 20px;
+  margin: 20px;
+}
