@@ -1,6 +1,6 @@
 import React from 'react'
 
-const EmployeeCard = ({companyName,employee}) => {
+const EmployeeCard = ({companyName,employee,promoteEmployee}) => {
   return (
     <div>
       <h2>Employee Card</h2>
@@ -9,6 +9,7 @@ const EmployeeCard = ({companyName,employee}) => {
        <p>Name: {employee.name}</p>
        <p>Age: {employee.age}</p>
        <p>Salary: {employee.salary}</p>
+       <button onClick={promoteEmployee}>promote Employee</button>
        <p>ID: {employee.id}</p>
        <p>Role: {employee.role}</p>
        <p>Experience: {employee.experience}</p>
